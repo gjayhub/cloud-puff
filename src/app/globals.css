@@ -4,26 +4,38 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --background-start-rgb: #0a060a;
+  --background-end-rgb: linear-gradient(to right, #0a020f, #461542, #000000);
+  --text-color: #dbdbdb;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--text-color);
+  background: var(--background-end-rgb);
+  box-sizing: border-box;
+}
+nav,
+section {
+  overflow: hidden;
+  padding: 20px 40px;
+}
+.shadow-image {
+  filter: drop-shadow(-10px 15px 8px #3a3a3a);
+}
+.text-gradient {
+  font-family: "Permanent Marker", cursive;
+  background: linear-gradient(90deg, #f349e5, #424242);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbars for IE, Edge, and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 @layer utilities {

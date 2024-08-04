@@ -1,0 +1,99 @@
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+
+const featuredList = [
+  {
+    name: "Green Breeze",
+    image: "/vapes/vape1.png",
+    className: "col-span-3",
+  },
+  {
+    name: "Mint Blue",
+    image: "/vapes/pen.png",
+    className: "col-span-2",
+  },
+  {
+    name: "Fire Breath",
+    image: "/vapes/vape2.png",
+    className: "col-span-2",
+  },
+  {
+    name: "Green Breeze",
+    image: "/vapes/vape1.png",
+    className: "col-span-3",
+  },
+  {
+    name: "Green Breeze",
+    image: "/vapes/vape1.png",
+    className: "col-span-3",
+  },
+  {
+    name: "Mint Blue",
+    image: "/vapes/pen.png",
+    className: "col-span-2",
+  },
+  {
+    name: "Fire Breath",
+    image: "/vapes/vape2.png",
+    className: "col-span-2",
+  },
+  {
+    name: "Green Breeze",
+    image: "/vapes/vape1.png",
+    className: "col-span-3",
+  },
+];
+export default function SpecialOffers() {
+  return (
+    <section>
+      <div>
+        <h1 className='text-5xl lg:text-header leading-tight '>
+          Vape on and let the clouds do the talking.
+        </h1>
+        <div className='flex justify-between mt-28 mb-14 items-center '>
+          <h1 className=' text-5xl font-bold'>Best deals</h1>
+          <Link href='' className='font-roboto pr-6'>
+            See more
+          </Link>
+        </div>
+      </div>
+      <div className='overflow-x-auto  w-screen'>
+        <div className='flex '>
+          {featuredList.map((value, key) => {
+            const [firstWord, secondWord] = value.name.split(" ", 2);
+            return (
+              <div
+                key={key}
+                className={`h-[400px] w-[400px] bg-gradient-to-tl from-[#0a020f] via-[#302f30] to-[#000000] rounded-3xl relative ${value.className}`}
+              >
+                <h1 className='absolute shadow-image top-20 left-6 italic leading-tight text-6xl lg:text-7xl z-30 font-bold '>
+                  {firstWord} <br />
+                  <span className='pl-8'>{secondWord}</span>
+                </h1>
+
+                <Image
+                  className='absolute shadow-image top-0 right-0 object-top rotate-45 md:rotate-0 hover:z-50 hover:rotate-45 hover:scale-150 transition-all '
+                  src={value.image}
+                  height={350}
+                  width={350}
+                  alt='vape1'
+                />
+                <p
+                  className={`absolute bottom-4 left-6 text-2xl text-[#c40046] ${
+                    key === 2 || key === 1 ? "lg:text-5xl" : "md:text-5xl"
+                  }`}
+                >
+                  5000 PUFFS
+                </p>
+                <button className='absolute right-2 bottom-2 font-roboto border p-2 rounded-full'>
+                  Order Now!
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
