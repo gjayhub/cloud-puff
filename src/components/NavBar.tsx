@@ -2,7 +2,7 @@
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import React, { useRef } from "react";
-import Button from "./ui/Button";
+// import Button from "./ui/Button";
 import { motion, sync, useCycle } from "framer-motion";
 
 import LinkButton from "./ui/Links";
@@ -39,7 +39,7 @@ export default function NavBar() {
     },
   };
   return (
-    <div className='overflow-hidden'>
+    <div className='overflow-hidden font-roboto '>
       <div className='grid grid-cols-[70px 1fr]'>
         <motion.nav
           initial={false}
@@ -56,7 +56,10 @@ export default function NavBar() {
           <MenuToggle toggle={() => toggleOpen()} />
         </motion.nav>
       </div>
-      <nav className='hidden md:flex lg:flex justify-between items-center absolute w-screen'>
+      <header
+        className='fixed w-full max-w-[1300px]  hidden md:flex m-0 h-14 top-0 left-[50%] transform -translate-x-1/2 justify-between items-center px-[20px] z-10'
+        style={{ backdropFilter: "blur(10px)" }}
+      >
         <div>
           <Image
             className='rounded-full cursor-pointer h-[40px] w-[40px}'
@@ -76,7 +79,7 @@ export default function NavBar() {
           <LinkButton href=''>Login</LinkButton>
           <LinkButton href='/signup'>Signup</LinkButton>
         </div>
-      </nav>{" "}
+      </header>{" "}
     </div>
   );
 }

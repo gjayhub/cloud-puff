@@ -42,7 +42,7 @@ export const MobileNavigation = ({ isOpen }: any) => {
       animate={isOpen ? "open" : "closed"}
       transition={{ duration: 0.6 }}
       initial={{ opacity: 0 }}
-      className='m-0 absolute top-0 left-0 rounded-br-lg w-[250px] bg-black pt-28 -z-10'
+      className='m-0 absolute top-0 left-0 rounded-br-lg w-[250px] bg-[#212121] pt-28 -z-10'
     >
       <Link
         href='#home'

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { WavyBackground } from "./ui/wavy-background";
 
 const featuredList = [
   {
@@ -29,14 +30,14 @@ export default function FeaturedProduct() {
   const text = "Green Breeze";
   const [firstWord, secondWord] = text.split(" ", 2);
   return (
-    <section className='font-permanent_marker py-28 md:py-56  bg-gradient-to-r from-[#0a020f] via-[#461542] to-[#000000]'>
+    <section className='font-permanent_marker py-28 md:pt-56  bg-gradient-to-r from-[#0a020f] via-[#461542] to-[#000000]'>
       <div className='max-w-[1300px] m-auto'>
-        <h1 className='text-5xl lg:text-header leading-tight '>
+        <h1 className='text-5xl lg:text-header leading-tight -z-10 font-roboto '>
           Vape on and let the clouds do the talking.
         </h1>
-        <div className='flex justify-between mt-28 mb-14 items-center '>
+        <div className='flex justify-between mt-28 mb-14 items-center font-roboto '>
           <h1 className=' text-5xl font-bold'>Best deals</h1>
-          <Link href='' className='font-roboto pr-6'>
+          <Link href='' className=' pr-6'>
             See more
           </Link>
         </div>
@@ -46,7 +47,7 @@ export default function FeaturedProduct() {
             return (
               <div
                 key={key}
-                className={`h-[400px] bg-gradient-to-tl from-[#0a020f] via-[#302f30] to-[#000000]  rounded-3xl relative ${value.className}`}
+                className={`h-[400px]  bg-gradient-to-tl from-[#0a020f] via-[#302f30] to-[#000000]  rounded-3xl relative ${value.className}`}
               >
                 <h1 className='absolute shadow-image top-20 left-6 italic leading-tight text-6xl lg:text-7xl z-30 font-bold '>
                   {firstWord} <br />
