@@ -1,8 +1,5 @@
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
-import { Minus, Plus } from "lucide-react";
-import Image from "next/image";
+
 import React from "react";
 import PaginationComponent from "./Pagination";
 import ProductContainer from "./ProductContainer";
@@ -19,7 +16,6 @@ export default function Page({
     ? searchParams.n[0]
     : searchParams?.n;
 
-  // Default to "All Products" if searchParams is not present or invalid
   const displayTitle = validNav.includes(navParam ?? "")
     ? navParam
     : "All Products";

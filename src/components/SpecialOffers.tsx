@@ -103,7 +103,7 @@ export default function SpecialOffers() {
                 key={key}
                 className={` lg:basis-1/3 md:basis-1/2 h-[340px] w-[200px]  bg-gradient-to-tl from-[#0a020f] via-[#302f30] to-[#000000] rounded-3xl relative ${value.className}`}
               >
-                {" "}
+              
                 <p className={`absolute text-xl text-[#c40046] font-roboto `}>
                   5000 PUFFS
                 </p>

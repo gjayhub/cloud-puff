@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/pagination";
 
 import React, { ReactNode, useState } from "react";
-import { cn } from "../../../lib/utils";
+
 import usePaginationStore from "@/lib/store/PaginationStore";
 import useProduct from "@/lib/store/ProductStore";
 
