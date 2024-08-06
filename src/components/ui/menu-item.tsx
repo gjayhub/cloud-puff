@@ -30,8 +30,8 @@ export const MenuItem = ({ item, i }: any) => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <Link href={`${item}`} className=''>
-        {item}
+      <Link href={`${item.route}`} className=''>
+        {item.name}
       </Link>
     </motion.li>
   );

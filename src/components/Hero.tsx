@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function Hero() {
@@ -22,9 +23,12 @@ export default function Hero() {
           <h3 className='text-sub-header lg:ml-32'>
             Quality, Flavor, and Innovation in Every Puff!
           </h3>{" "}
-          <button className='absolute right-0 md:right-96 bottom-0  font-roboto text-3xl border p-2 rounded-full '>
+          <Link
+            href={`/product-list`}
+            className='absolute right-0 md:right-96 bottom-0  font-roboto text-3xl border p-2 rounded-full '
+          >
             Order Now!
-          </button>
+          </Link>
         </div>
       </div>
     </article>

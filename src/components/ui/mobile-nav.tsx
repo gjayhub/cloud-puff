@@ -3,10 +3,21 @@ import { motion } from "framer-motion";
 import { MenuItem } from "./menu-item";
 import Link from "next/link";
 import Image from "next/image";
-const navList = ["Home", "New Arrivals", "Best Sellers", "Contact Us"];
-type navType = () => void;
 
-export const MobileNavigation = ({ isOpen }: any) => {
+type NavObject = {
+  name: string;
+  route: string;
+};
+
+type MobileNavigationProps = {
+  isOpen: any;
+  navList: NavObject[];
+};
+
+export const MobileNavigation = ({
+  isOpen,
+  navList,
+}: MobileNavigationProps) => {
   const variants = {
     open: {
       transition: { staggerChildren: 0.07, delayChildren: 0.4 },
@@ -42,7 +53,7 @@ export const MobileNavigation = ({ isOpen }: any) => {
       animate={isOpen ? "open" : "closed"}
       transition={{ duration: 0.6 }}
       initial={{ opacity: 0 }}
-      className='m-0 absolute top-0 left-0 rounded-br-lg w-[250px] bg-[#212121] pt-28 -z-10'
+      className='m-0 absolute top-0  -z-10 pb-5 left-0 rounded-br-lg w-[250px] bg-[#212121] pt-28 '
     >
       <Link
         href='#home'
