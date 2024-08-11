@@ -90,7 +90,7 @@ export default function NavBar() {
             width={80}
           />
         </div>
-        <ul className='flex gap-8 text-sub-header capitalize cursor-pointer justify-center items-center'>
+        <ul className='flex gap-8 text-2xl capitalize cursor-pointer justify-center items-center'>
           {navList.map((navItem, idx) => (
             <Link href={`${navItem.route}`} key={idx}>
               {navItem.name}

@@ -3,11 +3,15 @@ import usePaginationStore from "@/lib/store/PaginationStore";
 import useProduct from "@/lib/store/ProductStore";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 import React from "react";
 
 export default function ProductContainer() {
   const { productList } = useProduct();
   const { start, end } = usePaginationStore();
+  const router = useRouter();
+
   return (
     <div className='flex flex-wrap gap-5  items-center justify-center  '>
       {productList?.slice(start, end).map((value, key) => {
@@ -29,25 +33,25 @@ export default function ProductContainer() {
               {firstWord} <br />
               <span className='pl-8'>{secondWord}</span>
             </h1>
-            <div className=''>
-              <Image
-                className=' object-top w-auto h-auto rotate-45 md:rotate-0 hover:z-20 hover:rotate-45 hover:scale-125 transition-all '
-                src={value.image}
-                fill
-                alt='vape1'
-              />{" "}
-            </div>
+
+            <Image
+              className=' object-top w-auto h-auto rotate-45 md:rotate-0 hover:z-20 hover:rotate-45 hover:scale-125 transition-all '
+              src={value.image}
+              fill
+              alt='vape1'
+            />
+
             <div className='flex justify-between items-end h-full w-full  px-2 pb-3'>
               <p>
                 ₱ <span>{discountedPrice} </span>
               </p>
 
-              <Link
-                href={`/product-list/${value.id}`}
+              <button
+                onClick={() => router.push(`/product-list/${value.id}`)}
                 className='font-roboto border p-1  rounded-full z-30'
               >
                 Order Now!
-              </Link>
+              </button>
             </div>
           </Link>
         );

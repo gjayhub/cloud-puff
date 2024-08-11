@@ -2,6 +2,7 @@
 import useProduct from "@/lib/store/ProductStore";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function ProductDetails({
@@ -13,12 +14,18 @@ export default function ProductDetails({
   const id = parseInt(productId);
   const { getProductById, productList } = useProduct();
   const vape = getProductById(id);
+  const router = useRouter();
+  const price = vape?.price ?? 0;
+  const discount = vape?.discount ?? 0;
+
+  const discountedPrice = price - price * (discount / 100);
+
   return (
-    <div className='max-w-[1300px] mx-auto mt-20'>
-      <div className='flex items-center'>
+    <div className='max-w-[1000px] mx-auto mt-20 px-4 overflow-hidden'>
+      <div className='md:flex items-center justify-center '>
         <div className='flex-1'>
           <Image
-            className=''
+            className=' mx-auto rounded-lg'
             src={vape?.image || ""}
             alt={vape?.name || "img"}
             height={600}
@@ -26,10 +33,22 @@ export default function ProductDetails({
           />
         </div>
         <div className='flex-1'>
-          <h1 className='text-header leading-none'>{vape?.name}</h1>
-          <p className='text-4xl my-5'>P {vape?.price}</p>
+          <h1 className='text-5xl md:text-header  leading-none'>
+            {vape?.name}
+          </h1>
+          <div className='my-5'>
+            <span className='text-3xl  mr-5'>P {discountedPrice} </span>
+            {vape?.discount !== 0 && (
+              <>
+                <span className='text-3xl mr-5 opacity-50 line-through'>
+                  {vape?.price}
+                </span>
+                <span className='text-3xl text-yellow-400 '>-{discount}%</span>
+              </>
+            )}
+          </div>
 
-          <p className='text-slate-400 max-w-[70%]'>
+          <p className='text-slate-400 md:max-w-[70%]'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel non
             ullam repellendus, tempore deserunt omnis nemo aperiam? Architecto,
             natus iure?
@@ -47,7 +66,7 @@ export default function ProductDetails({
       <div className='my-20 '>
         <h1 className='text-5xl my-20 text-center'>You might also like</h1>
 
-        <div className='flex flex-wrap gap-5 items-center justify-center px-52 '>
+        <div className='flex flex-wrap gap-5 items-center justify-center  '>
           {productList?.slice(0, 6).map((value, key) => {
             const [firstWord, secondWord] = value.name.split(" ", 2);
             const discountedPrice =
@@ -82,12 +101,12 @@ export default function ProductDetails({
                     ₱ <span>{discountedPrice} </span>
                   </p>
 
-                  <Link
-                    href={`/product-list/${value.id}`}
+                  <button
+                    onClick={() => router.push(`/product-list/${value.id}`)}
                     className='font-roboto border p-1  rounded-full z-30'
                   >
                     Order Now!
-                  </Link>
+                  </button>
                 </div>
               </Link>
             );

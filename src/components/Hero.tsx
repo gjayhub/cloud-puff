@@ -4,31 +4,54 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <article className='overflow-hidden'>
-      <Image
-        className='absolute w-screen h-screen object-cover -z-10'
-        src='/hero.jpg'
-        alt='hero'
-        quality={100}
-        width={2000}
-        height={2000}
-      />
-      <div
-        className='h-screen w-screen px-10 flex
-        items-center lg:pl-40 md:pl-24 '
-      >
-        <div className='w-full pb-40 font-permanent_marker relative'>
-          <h1 className='text-[4rem] leading-snug'>Discover Your</h1>
-          <h1 className='lg:pl-32 md:pl-10 text-[4rem]'>Perfect Vape!</h1>
-          <h3 className='text-sub-header lg:ml-32'>
-            Quality, Flavor, and Innovation in Every Puff!
-          </h3>{" "}
-          <Link
-            href={`/product-list`}
-            className='absolute right-0 md:right-96 bottom-0  font-roboto text-3xl border p-2 rounded-full '
-          >
-            Order Now!
-          </Link>
+    <article className='overflow-hidden  max-w-[1300px] mx-auto h-screen'>
+      <div className=' h-full w-full px-10 grid md:grid-cols-2 items-center justify-center gap-36  '>
+        <div
+          className='absolute top-1/2 left-1/2 transform -translate-x-1/2
+         -translate-y-1/2  w-full md:w-[40vw] h-[55vh] bg-[#990030] opacity-60
+          rounded-3xl mt-[6.5rem] '
+        >
+          <Image
+            className='object-cover w-full h-full rounded-3xl '
+            src='/vapes/vape-trick.jpg'
+            alt='vape-trick'
+            height={500}
+            width={500}
+          />
+        </div>
+
+        <div className='grid grid-rows-[200px_50vh]'>
+          <div className=''>
+            <h1 className='text-8xl header-animation'>Cloud Puff</h1>
+          </div>
+          <div className='h-full w-full bg-purple-200 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 '>
+            <Image
+              className=' object-cover transform-gpu transition-all scale-125 -rotate-12 '
+              src='/vapes/vape1.png'
+              alt='hero'
+              width={600}
+              height={400}
+            />
+          </div>
+        </div>
+        <div className='md:grid grid-rows-[50vh_200px] relative hidden'>
+          <div className='h-full w-full bg-purple-200 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 '>
+            <Image
+              className=' object-cover transform-gpu transition-all rotate-12 scale-125 '
+              src='/vapes/vape2.png'
+              alt='hero'
+              width={500}
+              height={500}
+            />
+          </div>
+          <div className='text-left font-permanent_marker absolute bottom-0 '>
+            <Link
+              href={`/product-list`}
+              className=' border p-1 rounded-md  font-roboto text-3xl  '
+            >
+              Order Now!
+            </Link>
+          </div>
         </div>
       </div>
     </article>
