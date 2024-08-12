@@ -5,10 +5,10 @@ import React from "react";
 export default function Hero() {
   return (
     <article className='overflow-hidden  max-w-[1300px] mx-auto h-screen'>
-      <div className=' h-full w-full px-10 grid md:grid-cols-2 items-center justify-center gap-36  '>
+      <div className=' h-full w-full px-10 grid md:grid-cols-2 items-center justify-center md:gap-14 lg:gap-20  '>
         <div
           className='absolute top-1/2 left-1/2 transform -translate-x-1/2
-         -translate-y-1/2  w-full md:w-[40vw] h-[55vh] bg-[#990030] opacity-60
+         -translate-y-1/2  w-full md:w-[70vw] lg:w-[45vw]  h-[55vh] bg-[#990030] opacity-60
           rounded-3xl mt-[6.5rem] '
         >
           <Image

@@ -36,7 +36,7 @@ export default function RootLayout({
       <body
         className={` ${roboto.variable} ${permanent_marker.variable} font-roboto `}
       >
-        <NavBar />
+        {/* <NavBar /> */}
         {children}
         <Footer />
       </body>

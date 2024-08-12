@@ -101,18 +101,20 @@ export default function SpecialOffers() {
             return (
               <CarouselItem
                 key={key}
-                className={` lg:basis-1/3 md:basis-1/2 h-[340px] w-[200px]  bg-gradient-to-tl from-[#0a020f] via-[#302f30] to-[#000000] rounded-3xl relative ${value.className}`}
+                className={`h-[230px] md:h-[300px]  lg:basis-1/3 md:basis-1/2  bg-gradient-to-tl from-[#0a020f] via-[#302f30] to-[#000000] rounded-3xl relative `}
               >
-              
                 <p className={`absolute text-xl text-[#c40046] font-roboto `}>
                   5000 PUFFS
                 </p>
                 <span className='absolute text-yellow-400 right-0 rotate-12'>
                   {value.discount} %
                 </span>
-                <h1 className='absolute shadow-image top-20 left-6 italic leading-tight text-6xl lg:text-7xl z-30 font-bold '>
+                <h1
+                  className='absolute shadow-image top-20 left-6 italic leading-tight 
+                  text-2xl md:text-4xl lg:text-6xl z-30 font-bold'
+                >
                   {firstWord} <br />
-                  <span className='pl-8'>{secondWord}</span>
+                  <span className='md:pl-8'>{secondWord}</span>
                 </h1>
                 <Image
                   className='absolute shadow-image top-0 right-0 object-top rotate-45 md:rotate-0 hover:z-50 hover:rotate-45 hover:scale-150 transition-all '

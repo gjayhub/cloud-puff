@@ -10,17 +10,18 @@ import { useDimensions } from "../../lib/hooks/useDimentions";
 import { MobileNavigation } from "./ui/mobile-nav";
 import { MenuToggle } from "./ui/menu-toggle";
 import Link from "next/link";
+import { FloatingNav } from "./ui/floating-navbar";
 
 type navListType = {
   name: string;
-  route: string;
+  link: string;
 };
 
 const navList: navListType[] = [
-  { name: "Home", route: "/" },
-  { name: "New Arrival", route: "/product-list?n=New Arrival" },
-  { name: "Bestseller", route: "/product-list?n=Bestseller" },
-  { name: "Contact", route: "/contact" },
+  { name: "Home", link: "/" },
+  { name: "New Arrival", link: "/product-list?n=New Arrival" },
+  { name: "Bestseller", link: "/product-list?n=Bestseller" },
+  { name: "Contact", link: "/contact" },
 ];
 
 export default function NavBar() {
@@ -50,6 +51,9 @@ export default function NavBar() {
     },
   };
   return (
+    // <div className='relative  w-full'>
+    //   {/* <FloatingNav navItems={navList} /> */}
+    // </div>
     <div className=' font-roboto '>
       <div
         className='flex justify-between items-center fixed md:hidden top-0 z-50 w-full'
@@ -92,7 +96,7 @@ export default function NavBar() {
         </div>
         <ul className='flex gap-8 text-2xl capitalize cursor-pointer justify-center items-center'>
           {navList.map((navItem, idx) => (
-            <Link href={`${navItem.route}`} key={idx}>
+            <Link href={`${navItem.link}`} key={idx}>
               {navItem.name}
             </Link>
           ))}

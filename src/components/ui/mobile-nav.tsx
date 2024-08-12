@@ -6,7 +6,7 @@ import Image from "next/image";
 
 type NavObject = {
   name: string;
-  route: string;
+  link: string;
 };
 
 type MobileNavigationProps = {
